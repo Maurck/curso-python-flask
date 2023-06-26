@@ -1,15 +1,17 @@
 import random
 
-NUMERO_MAXIMO = 138976
-numero_secreto = random.randint(1, NUMERO_MAXIMO)
+NUMERO_MAXIMO: int = 2673514726
+numero_secreto: int = random.randint(0, NUMERO_MAXIMO)
 intentos = 0
 
 ultimo_max = 0
 ultimo_min = 0
 esMayor=True
-adivinado=False
+adivinado: bool = False
 
 def adivinanzas_usuario():
+    global adivinado
+    global intentos
     while not adivinado:
         num_usuario = input("Adivina el número secreto (entre 1 y 100): ")
         # Validar la entrada del usuario
@@ -20,7 +22,7 @@ def adivinanzas_usuario():
         intentos = intentos+1
         adivinado = adivinar(num_usuario)
 
-def adivinar(num_usuario):
+def adivinar(num_usuario: int):
     global ultimo_max
     global esMayor
     global ultimo_min
@@ -61,7 +63,8 @@ def adivinanzas_busqueda_binaria():
         num_usuario = adivinacion_binaria(num_actual)
         num_actual = int(num_usuario)
         intentos = intentos+1
-        print("numero secreto:", numero_secreto, " numero actual:", num_actual)
         adivinado = adivinar(num_actual)
 
+
+adivinanzas_usuario()
 adivinanzas_busqueda_binaria()

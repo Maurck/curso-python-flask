@@ -1,6 +1,8 @@
+# importacion
 import random
 
-numero_secreto = random.randint(1, 100)
+# genero un numero aleatorio
+numero_secreto: int = random.randint(1, 100)
 intentos = 0
 
 while True:
