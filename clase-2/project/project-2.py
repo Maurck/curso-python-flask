@@ -5,6 +5,16 @@ nombres = []
 edades = []
 calificaciones = []
 
+estudiantes: list = []
+estudiante: dict = {}
+estudiante["name"] = "Pepito"
+estudiante["edad"] = 19
+estudiante.append(estudiante)
+
+estudiantes[0]["name"]
+estudiantes[0]["edad"]
+
+
 # Función para registrar un estudiante
 def registrar_estudiante():
     nombre = input("Ingrese el nombre del estudiante: ")
@@ -26,14 +36,14 @@ def registrar_estudiante():
     print("Estudiante registrado con éxito.\n")
 
 # Función para calcular el promedio de calificaciones de un estudiante
-def calcular_promedio(nombre):
+def calcular_promedio(nombre: str):
     if nombre in nombres:
         indice = nombres.index(nombre)
         calificaciones_estudiante = calificaciones[indice]
         promedio = sum(calificaciones_estudiante) / len(calificaciones_estudiante)
-        print(f"El promedio de calificaciones de {nombre} es: {promedio}\n")
+        return (nombre, promedio)
     else:
-        print("El estudiante no está registrado.\n")
+        return ()
 
 # Función para encontrar el estudiante con la calificación más alta
 def encontrar_estudiante_con_calificacion_mas_alta():
@@ -60,7 +70,12 @@ while True:
             registrar_estudiante()
         case "2":
             nombre_estudiante = input("Ingrese el nombre del estudiante: ")
-            calcular_promedio(nombre_estudiante)
+            try:
+                nombre, promedio = calcular_promedio(nombre_estudiante)
+                print(f"El promedio de calificaciones de {nombre} es: {promedio}\n")
+                print("El promedio de calificaciones de " + nombre + " es: " + promedio + "\n")
+            except:
+                print("El estudiante no está registrado.\n")
         case "3":
             encontrar_estudiante_con_calificacion_mas_alta()
         case "4":
