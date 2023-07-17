@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div class="header">
+        <h1>Librería en Línea</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('home') }}">Inicio</a></li>
+                <li><a href="{{ url_for('book_list') }}">Libros</a></li>
+                <li><a href="{{ url_for('view_cart') }}">Carrito</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+    <div class="footer">
+        <p>Derechos reservados © 2023</p>
+    </div>
+</body>
+
+</html>

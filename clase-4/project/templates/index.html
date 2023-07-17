@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de Flask con Templates y Archivos Estáticos</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Bienvenido a mi sitio web!</h1>
+        <p>Esta es una página de inicio de ejemplo utilizando Flask, Templates y Archivos Estáticos.</p>
+
+        <h2>Información de usuarios:</h2>
+        <ul>
+            {% for user in users %}
+            <li>{{ user.info() }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+
+</html>

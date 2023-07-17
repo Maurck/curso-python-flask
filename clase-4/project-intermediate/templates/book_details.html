@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}Detalles del Libro{% endblock %}
+
+{% block content %}
+<h2>{{ book.title }}</h2>
+<p>Autor: {{ book.author }}</p>
+<p>Precio: ${{ book.price }}</p>
+<a href="{{ url_for('add_to_cart', book_id=book.id) }}">Agregar al carrito</a>
+{% endblock %}

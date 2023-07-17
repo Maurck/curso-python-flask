@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de templates y archivos estaticos</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Bienvenido a mi sitio</h1>
+        <h2>Informacion de los usuarios</h2>
+            {% for user in users %}
+            <li>{{ user.greet() }}</li>
+            {% endfor %}
+    </div>
+</body>
+
+</html>

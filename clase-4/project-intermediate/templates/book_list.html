@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista de Libros{% endblock %}
+
+{% block content %}
+<h2>Libros Disponibles</h2>
+<ul>
+    {% for book in books %}
+    <li>
+        <strong>{{ book.title }}</strong> - {{ book.author }} (${{ book.price }})
+        <form action="{{ url_for('add_to_cart') }}" method="post">
+            <input type="hidden" name="book_id" value="{{ book.id }}">
+            <input type="submit" value="Agregar al carrito">
+        </form>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
